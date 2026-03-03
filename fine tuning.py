@@ -83,7 +83,25 @@ for text, label in zip(all_texts_raw, all_labels_raw):
 
     except ValueError:
         continue
+"""
+#For the Kompas analysis, replace the code above with the following.
+for text, label in zip(all_texts_raw, all_labels_raw):
+    try:
+        label_int = int(label)
+    except ValueError:
+        continue
 
+    if GROUP_LABELS:
+        if label_int in [1, 2]:
+            valid_texts.append(text); valid_labels.append("A")
+        elif label_int in [3]:
+            valid_texts.append(text); valid_labels.append("B")
+        elif label_int in [4,5]:
+            valid_texts.append(text); valid_labels.append("C")
+    else:
+        if label_int in [1,2, 3, 4, 5]:
+            valid_texts.append(text); valid_labels.append(str(label_int))
+"""
 
 unique_labels = sorted(list(set(valid_labels)))
 num_classes = len(unique_labels)
