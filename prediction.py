@@ -37,6 +37,24 @@ for text, label in zip(all_texts_raw, all_labels_raw):
     except ValueError:
         continue
 
+"""
+#For the Kompas analysis, replace the code above with the following.
+for text, label in zip(all_texts_raw, all_labels_raw):
+    try:
+        label_int = int(label)
+        if label_int in [1, 2]:
+            valid_texts.append(text)
+            valid_labels.append('A')
+        elif label_int in [3]:
+            valid_texts.append(text)
+            valid_labels.append('B')
+        elif label_int in [4,5]:
+            valid_texts.append(text)
+            valid_labels.append('C')
+    except ValueError:
+        continue
+"""
+
 train_val_texts, test_texts_orig, train_val_labels, test_labels_orig = train_test_split(
     valid_texts, valid_labels,
     test_size=TEST_SIZE,
